@@ -4,68 +4,405 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SBTECH - Complete IT Support & Service</title>
+<!-- Google Fonts & Font Awesome Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#f5f7ff;color:#222}
-header img{width:100%;display:block}
-nav{background:#111;padding:12px;text-align:center}
-nav a{color:white;text-decoration:none;margin:0 15px}
-section{max-width:1200px;margin:auto;padding:50px 20px}
-h2{text-align:center;color:#2448ff}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.1)}
-.contact{background:#fff;padding:25px;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.1);text-align:center}
-.btn{display:inline-block;background:#2448ff;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none}
-footer{background:#111;color:#fff;text-align:center;padding:20px}
+  :root {
+    --primary-blue: #0321a6;
+    --accent-purple: #700099;
+    --gradient: linear-gradient(135deg, #0321a6 0%, #700099 100%);
+    --bg-light: #f8fafc;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+
+  /* Navigation Bar */
+  nav {
+    background: #ffffff;
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+
+  nav .logo-container img {
+    height: 50px;
+    object-fit: contain;
+    display: block;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+  }
+
+  nav a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+
+  nav a:hover {
+    color: var(--primary-blue);
+  }
+
+  /* Header Banner */
+  header img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Hero Section */
+  .hero {
+    background: white;
+    padding: 60px 5%;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 25px;
+  }
+
+  /* Layout Sections */
+  section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 70px 20px;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    color: var(--text-dark);
+    position: relative;
+  }
+
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--gradient);
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
+
+  /* Grid & Cards */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    border: 1px solid #edf2f7;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(112, 0, 153, 0.1);
+  }
+
+  .card:hover::before {
+    opacity: 1;
+  }
+
+  .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+  }
+
+  .card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  /* Contact Box */
+  .contact-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+
+  .contact-info p {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .contact-info i {
+    color: var(--primary-blue);
+    font-size: 1.2rem;
+  }
+
+  /* Buttons */
+  .btn-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+
+  .btn-primary {
+    background: var(--gradient);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(3, 33, 166, 0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(112, 0, 153, 0.4);
+  }
+
+  .btn-whatsapp {
+    background: #25d366;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  }
+
+  .btn-whatsapp:hover {
+    transform: translateY(-2px);
+    background: #20ba5a;
+  }
+
+  /* Floating WhatsApp Icon */
+  .whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 32px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+  }
+
+  footer {
+    background: #0f172a;
+    color: #94a3b8;
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9rem;
+  }
 </style>
 </head>
 <body>
-<header>
-<img src="banner.png" alt="SBTECH Banner">
-</header>
 
+<!-- Navigation Bar -->
 <nav>
-<a href="#services">Services</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
+  <div class="logo-container">
+    <a href="#"><img src="logo.png" alt="SBTECH Logo"></a>
+  </div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why-us">Why Us</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
+<!-- Header Banner Image -->
+<header>
+  <img src="banner.png" alt="SBTECH Banner">
+</header>
+
+<!-- Hero Intro Section -->
+<div class="hero">
+  <h1>Complete IT Support & Service</h1>
+  <p>तपाईंको व्यवसायलाई चाहिने सम्पूर्ण आईटी तथा प्राविधिक समाधानहरू एकै ठाउँमा।</p>
+  <a href="https://wa.me/9779852675908?text=Hello%20SBTECH,%20I%20want%20to%20inquire%20about%20your%20services." target="_blank" class="btn btn-whatsapp">
+    <i class="fa-brands fa-whatsapp"></i> Instant WhatsApp Inquiry
+  </a>
+</div>
+
+<!-- About Section -->
 <section id="about">
-<h2>Your Trusted IT Partner</h2>
-<p style="text-align:center">SBTECH provides complete IT Support & Service including maintenance, networking, cybersecurity, cloud solutions, and hardware/software support.</p>
+  <h2 class="section-title">Your Trusted IT Partner</h2>
+  <p style="text-align: center; max-width: 800px; margin: 0 auto; color: var(--text-muted); font-size: 1.1rem;">
+    SBTECH provides complete IT Support & Service including maintenance, networking, cybersecurity, cloud solutions, and hardware/software support tailored for modern businesses.
+  </p>
 </section>
 
+<!-- Services Section -->
 <section id="services">
-<h2>Our Services</h2>
-<div class="grid">
-<div class="card"><h3>IT Support & Maintenance</h3><p>Reliable support for your business.</p></div>
-<div class="card"><h3>Network Setup & Management</h3><p>Secure and efficient network solutions.</p></div>
-<div class="card"><h3>Cyber Security</h3><p>Protecting your data and systems.</p></div>
-<div class="card"><h3>Cloud Solutions</h3><p>Scalable and flexible cloud services.</p></div>
-<div class="card"><h3>Hardware & Software Solutions</h3><p>Right solutions for your needs.</p></div>
-</div>
+  <h2 class="section-title">Our Services</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon"><i class="fa-solid fa-headset"></i></div>
+      <h3>IT Support & Maintenance</h3>
+      <p>Reliable day-to-day IT support and hardware maintenance for your organization.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="fa-solid fa-network-wired"></i></div>
+      <h3>Network Setup & Management</h3>
+      <p>Secure, fast, and scalable networking solutions for seamless connectivity.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <h3>Cyber Security</h3>
+      <p>Protecting your critical business data, servers, and digital infrastructure.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="fa-solid fa-cloud"></i></div>
+      <h3>Cloud Solutions</h3>
+      <p>Flexible cloud integration, backups, and secure remote access setup.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+      <h3>Hardware & Software</h3>
+      <p>Procurement, installation, and troubleshooting of modern tech equipment.</p>
+    </div>
+  </div>
 </section>
 
-<section>
-<h2>Why Choose Us</h2>
-<div class="grid">
-<div class="card">Reliable Support</div>
-<div class="card">Quality Service</div>
-<div class="card">Fast & Efficient Solutions</div>
-<div class="card">Customer Satisfaction</div>
-</div>
+<!-- Why Choose Us -->
+<section id="why-us">
+  <h2 class="section-title">Why Choose Us</h2>
+  <div class="grid">
+    <div class="card" style="text-align: center;">
+      <div class="card-icon"><i class="fa-solid fa-circle-check"></i></div>
+      <h3>Reliable Support</h3>
+    </div>
+    <div class="card" style="text-align: center;">
+      <div class="card-icon"><i class="fa-solid fa-award"></i></div>
+      <h3>Quality Service</h3>
+    </div>
+    <div class="card" style="text-align: center;">
+      <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+      <h3>Fast & Efficient</h3>
+    </div>
+    <div class="card" style="text-align: center;">
+      <div class="card-icon"><i class="fa-solid fa-face-smile"></i></div>
+      <h3>100% Satisfaction</h3>
+    </div>
+  </div>
 </section>
 
+<!-- Contact Section -->
 <section id="contact">
-<h2>Contact Us</h2>
-<div class="contact">
-<p><strong>Phone:</strong> +977-9852675908</p>
-<p><strong>Email:</strong> info@sbtech.com.np</p>
-<p><strong>Registration No:</strong> 179-2069/070</p>
-<p><strong>PAN No:</strong> 600714930</p>
-<p><a class="btn" href="mailto:info@sbtech.com.np">Send Email</a></p>
-</div>
+  <h2 class="section-title">Contact Us</h2>
+  <div class="contact-container">
+    <div class="contact-info">
+      <p><i class="fa-solid fa-phone"></i> <strong>Phone:</strong> +977-9852675908</p>
+      <p><i class="fa-solid fa-envelope"></i> <strong>Email:</strong> info@sbtech.com.np</p>
+      <p><i class="fa-solid fa-file-contract"></i> <strong>Registration No:</strong> 179-2069/070</p>
+      <p><i class="fa-solid fa-id-card"></i> <strong>PAN No:</strong> 600714930</p>
+      
+      <div class="btn-group">
+        <a class="btn btn-primary" href="mailto:info@sbtech.com.np">
+          <i class="fa-solid fa-envelope"></i> Send Email
+        </a>
+        <a class="btn btn-whatsapp" href="https://wa.me/9779852675908?text=Hello%20SBTECH,%20I%20have%20an%20inquiry." target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Chat
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<footer>© SBTECH - Complete IT Support & Service</footer>
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/9779852675908?text=Hello%20SBTECH,%20I%20need%20IT%20Support." class="whatsapp-float" target="_blank" title="Direct WhatsApp Chat">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<footer>
+  © SBTECH - Complete IT Support & Service. All Rights Reserved.
+</footer>
+
 </body>
 </html>
