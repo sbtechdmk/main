@@ -45,11 +45,14 @@
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
   }
 
+  /* Logo Round Style Update */
   nav .logo-container img {
-    height: 45px;
-    width: auto;
-    object-fit: contain;
+    height: 55px;
+    width: 55px;
+    object-fit: cover;
+    border-radius: 50%;
     display: block;
+    mix-blend-mode: multiply; /* कालो/सेतो ब्याकग्राउन्ड मिलाउन */
   }
 
   nav ul {
@@ -69,7 +72,7 @@
     color: var(--primary-blue);
   }
 
-  /* Fixed Header Banner (अब ब्यानर काटिने छैन) */
+  /* Fixed Header Banner */
   header img {
     width: 100%;
     height: auto;
